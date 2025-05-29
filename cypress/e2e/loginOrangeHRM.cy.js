@@ -37,5 +37,4 @@ describe('Testes de Login no OrangeHRM', () => {
     cy.get('.oxd-alert-content-text')
       .should('contain.text', 'Invalid credentials');
   });
-
 });
