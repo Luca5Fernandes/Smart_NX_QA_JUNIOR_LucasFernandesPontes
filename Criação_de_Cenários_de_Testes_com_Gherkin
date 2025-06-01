@@ -1,0 +1,76 @@
+1# Criação de Cenários de Testes com Gherkin 
+Título: Login no Sistema
+Descrição:
+Como usuário, desejo acessar o sistema usando meu login, para utilizar as funcionalidades disponíveis.
+Critérios de Aceitação:
+1. A Página de login
+O usuário deve visualizar  na tela de login os campos Email e Senha
+Ao inserir os dados válidos nos campos de texto e clicar em entrar, o sistema deve acessar a área logada.
+Ao realizar o login a mensagem de Login Realizado deve aparecer. 
+Solicitar para salvar login, caso seja a primeira vez fazendo login neste dispositivo.
+
+
+Cenário de Teste com Gherkin:
+
+Cenário:
+Dado que o usuário está na página de login
+Quando o usuário informar as informações corretas
+E clica no botão "Entrar"
+Então o usuário deve ser redirecionado para a página inicial do sistema
+E deve exibir a mensagem "Login Realizado"
+
+----------------------------------------------------------------------------------------------------------------
+
+
+2# Criação de Cenários de Testes com Gherkin 
+Título: Busca de Produto na Página Inicial
+Descrição:
+Como cliente deste aplicativo, desejo buscar um produto na página inicial, utilizando um botão de categoria para encontrar rapidamente o que estou procurando e otimizando o meu tempo.
+Critérios de Aceitação:
+1. O Campo de Busca.
+O Cliente deve visualizar a caixa de busca e uma imagem de lupa para identificar o campo de pesquisa.
+Ao clicar no  campo o site deve:
+Permitir o usuário de escrever no campo e mostrar várias categorias de produtos.
+
+
+Cenário Gherkin: 
+
+Cenário: Busca de produto existente
+Dado que o cliente está na página inicial
+Quando o cliente clica no campo de busca
+E seleciona a categoria "Tecnologia"
+Então devem ser exibidos produtos relacionados a "Tecnologia"
+
+----------------------------------------------------------------------------------------------------------------
+
+
+3# Criação de Cenários de Testes com Gherkin 
+
+Título: Filtro de Produtos 
+Descrição:
+Como cliente do sistema, desejo aplicar filtros na busca de produtos, para localizar facilmente itens de uma categoria específica, melhorando minha experiência de compra.
+Critérios de Aceitação:
+1. Exibição dos Filtros
+O cliente deve visualizar os filtros disponíveis na página de produtos, como categorias, preço e marca.
+
+
+2. Aplicação de Filtro por Categoria
+Ao selecionar uma categoria (ex.: marca) e clicar no botão “Filtrar”, o sistema deve:
+Exibir apenas os produtos pertencentes à categoria selecionada.
+Atualizar o total de produtos encontrados.
+
+
+3. Nenhum Resultado Encontrado
+Se a combinação dos filtros não encontrar nenhum produto, o sistema deve:
+Exibir a mensagem: “Nenhum produto encontrado para os filtros selecionados.”
+
+
+
+Cenário Gherkin: 
+
+Cenário: Aplicação de filtro por categoria na página de busca
+Dado que o cliente está na página de produtos
+E que existem produtos cadastrados na categoria "Eletrônicos"
+Quando o cliente seleciona a categoria "Eletrônicos"
+E clica no botão "Filtrar"
+Então devem ser exibidos apenas produtos da categoria "Eletrônicos"
