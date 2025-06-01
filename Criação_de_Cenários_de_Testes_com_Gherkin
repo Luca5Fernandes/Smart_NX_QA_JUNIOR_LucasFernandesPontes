@@ -1,8 +1,10 @@
 1# Criação de Cenários de Testes com Gherkin 
+
 Título: Login no Sistema
 Descrição:
 Como usuário, desejo acessar o sistema usando meu login, para utilizar as funcionalidades disponíveis.
 Critérios de Aceitação:
+
 1. A Página de login
 O usuário deve visualizar  na tela de login os campos Email e Senha
 Ao inserir os dados válidos nos campos de texto e clicar em entrar, o sistema deve acessar a área logada.
@@ -21,12 +23,13 @@ E deve exibir a mensagem "Login Realizado"
 
 ----------------------------------------------------------------------------------------------------------------
 
-
 2# Criação de Cenários de Testes com Gherkin 
+
 Título: Busca de Produto na Página Inicial
 Descrição:
 Como cliente deste aplicativo, desejo buscar um produto na página inicial, utilizando um botão de categoria para encontrar rapidamente o que estou procurando e otimizando o meu tempo.
 Critérios de Aceitação:
+
 1. O Campo de Busca.
 O Cliente deve visualizar a caixa de busca e uma imagem de lupa para identificar o campo de pesquisa.
 Ao clicar no  campo o site deve:
@@ -43,13 +46,13 @@ Então devem ser exibidos produtos relacionados a "Tecnologia"
 
 ----------------------------------------------------------------------------------------------------------------
 
-
 3# Criação de Cenários de Testes com Gherkin 
 
 Título: Filtro de Produtos 
 Descrição:
 Como cliente do sistema, desejo aplicar filtros na busca de produtos, para localizar facilmente itens de uma categoria específica, melhorando minha experiência de compra.
 Critérios de Aceitação:
+
 1. Exibição dos Filtros
 O cliente deve visualizar os filtros disponíveis na página de produtos, como categorias, preço e marca.
 
@@ -63,7 +66,6 @@ Atualizar o total de produtos encontrados.
 3. Nenhum Resultado Encontrado
 Se a combinação dos filtros não encontrar nenhum produto, o sistema deve:
 Exibir a mensagem: “Nenhum produto encontrado para os filtros selecionados.”
-
 
 
 Cenário Gherkin: 
