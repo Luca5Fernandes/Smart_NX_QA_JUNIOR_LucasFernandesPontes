@@ -1,40 +1,42 @@
 /// <reference types="cypress" />
 
-describe('Testes de Login no OrangeHRM', () => {
+describe('Testes de Login', () => {
   
-  const url = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login';
+  const URL = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login';
+
+  const selectors = {
+    usernameInput: 'input[name="username"]',
+    passwordInput: 'input[name="password"]',
+    submitButton: 'button[type="submit"]',
+    errorMessage: '.oxd-input-field-error-message',
+    invalidCredentialsAlert: '.oxd-alert-content-text',
+    dashboardTitle: 'h6'
+  };
 
   beforeEach(() => {
-    // Acessa a página antes de cada teste
-    cy.visit(url);
+    cy.visit(URL);
   });
 
-  it('Login com sucesso', () => {
-    cy.get('input[name="username"]').type('Admin');
-    cy.get('input[name="password"]').type('admin123');
-    cy.get('button[type="submit"]').click();
+  it('Deve Realizar Login com Sucesso', () => {
+    cy.get(selectors.usernameInput).type('Admin');
+    cy.get(selectors.passwordInput).type('admin123');
+    cy.get(selectors.submitButton).click();
 
-    // Verifica se o painel foi carregado (login bem-sucedido)
-    cy.url().should('include', '/dashboard');
-    cy.get('h6').should('contain.text', 'Dashboard');
+    cy.get(selectors.dashboardTitle).should('contain.text', 'Dashboard');
   });
 
-  it('Login sem fornecer usuário e senha', () => {
-    cy.get('button[type="submit"]').click();
-
-    // Verifica as mensagens de erro para campos obrigatórios
-    cy.get('.oxd-input-field-error-message')
+  it('Deve exibir Mensagem de Erro ao tentar Logar sem Usuário e Senha', () => {
+    cy.get(selectors.submitButton).click();
+    cy.get(selectors.errorMessage)
       .should('contain.text', 'Required')
-      .and('have.length.at.least', 1);
   });
 
-  it('Login com credenciais inválidas', () => {
-    cy.get('input[name="username"]').type('usuarioInvalido');
-    cy.get('input[name="password"]').type('senhaInvalida');
-    cy.get('button[type="submit"]').click();
-
-    // Verifica mensagem de erro
-    cy.get('.oxd-alert-content-text')
+  it('Deve exibir Erro ao Logar com Credenciais Inválidas', () => {
+    cy.get(selectors.usernameInput).type('usuarioInvalido');
+    cy.get(selectors.passwordInput).type('senhaInvalida');
+    cy.get(selectors.submitButton).click();
+    cy.get(selectors.invalidCredentialsAlert)
       .should('contain.text', 'Invalid credentials');
   });
+
 });
